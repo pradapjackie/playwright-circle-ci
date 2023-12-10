@@ -17,10 +17,9 @@ jobs:
 
       - run: npm install
       - run: npm run test
-      - persist_to_workspace:
-          root: ./
-          paths:
-            - ./playwright-report  # Assuming 'dist' is the output directory
 
-      - attach_workspace:
-          at: /workspace
+      - store_artifacts:
+          path: ./playwright-report
+          destination: playwright-report-first
+      - store_artifacts:
+          path: /tmp/artifacts
