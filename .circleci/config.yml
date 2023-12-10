@@ -4,7 +4,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: cypress/browsers:node18.6.0-chrome105-ff104
+      - image: mcr.microsoft.com/playwright:v1.40.0-jammy
     working_directory: ~/repo
     steps:
       - checkout
@@ -15,5 +15,5 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: npm ci
-      - run: npm run run-test-yarn
+      - run: npm install
+      - run: npm run test
